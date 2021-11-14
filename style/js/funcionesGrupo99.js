@@ -130,7 +130,7 @@ labelpasword.textContent="";
 
         paswordregistro.addEventListener('input',(e)=>{
             const resultado=e.target.value;
-            if(resultado.length<2){
+            if(resultado.length<=2){
             
             paswordregistro.style.borderColor='red';
             paswordregistro.style.borderStyle="solid";
