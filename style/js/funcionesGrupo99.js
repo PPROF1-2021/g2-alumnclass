@@ -5,7 +5,8 @@ const labelemail=document.getElementById('emailfor')
 const labelpasword=document.getElementById('paswordfor')
 const btn=document.getElementById('btn-registrarse');
 const btn2=document.getElementById('btn-login')
-
+const arroba="@"
+const com=".com"
 
 
 //campos del formulario de registro
@@ -65,6 +66,28 @@ email.style.borderColor='red';
 email.style.borderStyle="solid";
 labelemail.textContent="Error en el email debe tener mas de dos caracteres";
 }
+else if(resultado.length>=3 ){
+    if (resultado.includes(com) ==false && resultado.includes(arroba)==false) {
+        
+        email.style.borderColor='red';
+        email.style.borderStyle="solid";
+        labelemail.textContent="Email invalido";
+        validado()
+    }
+    
+    if(resultado.includes(com) ==true && resultado.includes(arroba)==true){
+    
+        email.style.borderStyle="none";
+        labelemail.textContent="";
+        validado()
+    
+    }
+    
+    }
+    
+
+
+
 else{
     email.style.borderStyle="none";
     labelemail.textContent="";
@@ -147,15 +170,36 @@ labelpasword.textContent="";
             
         emailregistro.addEventListener('input',(e)=>{
             const resultado=e.target.value;
+            console.log((resultado.length>=3 && resultado.includes(com) ==false && resultado.includes(arroba)== false))
             if(resultado.length<=2){
             
             emailregistro.style.borderColor='red';
             emailregistro.style.borderStyle="solid";
             emaillabel.textContent="Error en el email debe tener mas de dos caracteres";
+            
             validado();
 
             
             }
+
+            else if(resultado.length>=3 ){
+if (resultado.includes(com) ==false && resultado.includes(arroba)==false) {
+    
+    emailregistro.style.borderColor='red';
+    emailregistro.style.borderStyle="solid";
+    emaillabel.textContent="Email invalido";
+    validado()
+}
+
+if(resultado.includes(com) ==true && resultado.includes(arroba)==true){
+
+    emailregistro.style.borderStyle="none";
+    emaillabel.textContent="";
+    validado()
+
+}
+
+}
             else{
                 emailregistro.style.borderStyle="none";
                 emaillabel.textContent="";
