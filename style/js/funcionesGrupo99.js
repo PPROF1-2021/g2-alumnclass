@@ -60,6 +60,7 @@ Swal.fire({
 })
 email.addEventListener('input',(e)=>{
 const resultado=e.target.value;
+validarlogin()
 if(resultado.length<=2){
     validarlogin()
 email.style.borderColor='red';
@@ -170,7 +171,7 @@ labelpasword.textContent="";
             
         emailregistro.addEventListener('input',(e)=>{
             const resultado=e.target.value;
-            console.log((resultado.length>=3 && resultado.includes(com) ==false && resultado.includes(arroba)== false))
+           
             if(resultado.length<=2){
             
             emailregistro.style.borderColor='red';
@@ -210,10 +211,10 @@ if(resultado.includes(com) ==true && resultado.includes(arroba)==true){
 if(emailregistro.value!="" && paswordregistro.value!="" && nombre.value!="" && apellido.value !=""){
    
    if(emailregistro.value.length>2 && paswordregistro.value.length>2 && nombre.value.length>2 && apellido.value.length>2){
-
+    if(emailregistro.value.includes(com) && emailregistro.value.includes(arroba)){
     btn.disabled=false;
     btn.style.opacity="1"
-   }
+   }}
    else{
     btn.disabled=true;
    }
@@ -226,10 +227,11 @@ const validarlogin=()=>{
         
 
         if(email.value.length>2 && pasword.value.length>2){
-         
+            
+            if(email.value.includes(com) && email.value.includes(arroba)){
     btn2.disabled=false;
     btn2.style.opacity="1"
-        }
+        }}
         
    else{
     btn.disabled=true;
